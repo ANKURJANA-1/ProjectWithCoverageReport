@@ -20,12 +20,10 @@ jobs:
       runs-on: macOS-latest
       strategy:
        matrix:
-        api-level: [23, 29]
+        api-level: [23]
         arch: [x86, x86_64]
         exclude:
           - api-level: 23
-            arch: x86_64
-          - api-level: 29
             arch: x86_64
       steps:
       - name: checkout
