@@ -127,5 +127,18 @@ dependencies {
     androidTestImplementation 'androidx.test:rules:1.4.0'
     kapt 'com.google.dagger:hilt-compiler:2.35.1'
 
+    //remittance utils
+    implementation 'com.remittance.sdks:utils:0.0.1'
+    //0.0.1
+    //remittance contracts
+    implementation 'com.remittance.sdks:contracts:0.0.2'
+    //0.0.2
+    //remittance apis
+    implementation 'com.remittance.sdks:apis:0.0.1'
+    //0.0.1
+    //keyboard height provider
+    implementation 'com.sagar:heightprovider:0.0.1'
+
+
 
 }

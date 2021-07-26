@@ -4,6 +4,8 @@ buildscript {
     repositories {
         google()
         mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.2.2"
@@ -15,11 +17,47 @@ buildscript {
     }
 }
 
+
+def githubProperties = new Properties()
+githubProperties.load(new FileInputStream(rootProject.file("github.properties")))
+
 allprojects {
     repositories {
         google()
-        mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/AGPAYTECH-Programming-Universe/Remittance-Utils")
+            credentials {
+                username = githubProperties['gpr.usr'] //?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] //?:System.getenv("GPR_API_KEY")
+            }
+        }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/AGPAYTECH-Programming-Universe/Remittance-Contracts")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/AGPAYTECH-Programming-Universe/remittance-android-ws")
+            credentials {
+                username = githubProperties['gpr.usr'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/sagarnayak/KeyboardHeightUtil")
+            credentials {
+                username = githubProperties['gpr.usr.skn'] ?: System.getenv("GPR_USER")
+                password = githubProperties['gpr.key.skn'] ?: System.getenv("GPR_API_KEY")
+            }
+        }
     }
 }
 

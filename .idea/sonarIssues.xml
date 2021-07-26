@@ -118,6 +118,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/gradle/github.properties">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="E:/remittence project/remittance-android-app/app/build.gradle">
           <value>
             <set />
